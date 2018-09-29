@@ -12,7 +12,7 @@ function circle1(dx, dy, sc) {
   lineCircle.linewidth = 5;
 
   var fillCircle = two.makeCircle(189, 150, 10);
-  fillCircle.fill = '#FF8000';
+  fillCircle.fill = dynamicColorsArray[4].getColor();
   fillCircle.stroke = "rgba(0, 0, 0, 1)"; // Accepts all valid css color
   fillCircle.linewidth = 3;
 
@@ -29,7 +29,7 @@ function circle2(dx, dy, sc) {
   lineCircle.linewidth = 4;
 
   var fillCircle = two.makeCircle(450, 400, 10);
-  fillCircle.fill = 'rgb(0, 200, 255)';
+  fillCircle.fill = dynamicColorsArray[1].getColor();
   fillCircle.stroke = "rgba(0, 0, 0, 1)"; // Accepts all valid css color
   fillCircle.linewidth = 2;
 
@@ -41,7 +41,7 @@ function circle2(dx, dy, sc) {
 
 function rectangle1(dx, dy, sc) {
   var rect1 = two.makeRectangle(72, 250, 50, 20);
-  rect1.fill = 'rgb(0, 200, 255)';
+  rect1.fill = dynamicColorsArray[2].getColor();
   rect1.opacity = 0.75;
   rect1.noStroke();
   rect1.scale = sc;
@@ -50,7 +50,7 @@ function rectangle1(dx, dy, sc) {
 
 function rectangle2(dx, dy, sc) {
   var rect2 = two.makeRectangle(340, 230, 100, 70);
-  rect2.fill = '#FF8000';
+  rect2.fill = dynamicColorsArray[2].getColor();
   rect2.opacity = 0.75;
   rect2.noStroke();
   rect2.scale = sc;
@@ -81,10 +81,10 @@ function whiskers(dx, dy, sc) {
 
 function thickLine(dx, dy, sc) {
   var line4Thick = two.makeLine(140, 342, 540, 570);
-  line4Thick .linewidth = 10;
+  line4Thick.linewidth = 10;
   line4Thick.scale = sc;
   line4Thick.translation.set(dx, dy)
-  line4Thick .stroke = "rgba(0, 0, 0, 1)";
+  line4Thick.stroke = "rgba(0, 0, 0, 1)";
 }
 
 function curve1(dx, dy, sc) {
