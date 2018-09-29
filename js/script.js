@@ -64,6 +64,7 @@ colorLookup.forEach(item => {
 })
 
 
+var position_right_eye;
 let canvasWd = 800
 let canvasHt = 600
 
@@ -175,6 +176,11 @@ function reset() {
 
 reset();
 
+var posToGo;
+var increment;
+var oldPosToGo;
+
+
 function refresh() {
 
   dynamicColorsArray.forEach(color => {
@@ -185,7 +191,7 @@ function refresh() {
   let backgroundColor = paramsLookup.background;
   $('#art-canvas svg').css("background-color", backgroundColor)
 
-  rotation = paramsLookup.rotation;
+  rotation = paramsLookup.rotation+(position_right_eye*10);
 
 
   // DRAW A RECTANGLE
@@ -234,21 +240,27 @@ function refresh() {
   doSemiCirc(x, y, rad0, rad1, 0, Math.PI, fill, stroke, strokeWeight, opacity, rotation)
 
 
-  whiskers(monaShapesParams[0][0], monaShapesParams[0][1], monaShapesParams[0][2])
-  thickLine(monaShapesParams[1][0], monaShapesParams[1][1], monaShapesParams[1][2])
-  curve1(monaShapesParams[2][0], monaShapesParams[2][1], monaShapesParams[2][2])
-  curve2a(monaShapesParams[3][0], monaShapesParams[3][1], monaShapesParams[3][2])
-  curve2b(monaShapesParams[4][0], monaShapesParams[4][1], monaShapesParams[4][2])
-  curve3(monaShapesParams[5][0], monaShapesParams[5][1], monaShapesParams[5][2])
+  posToGo = 200-(position_right_eye-9)*10;
+  posToGo = posToGo/100;
+  console.log(posToGo);
+
+  whiskers(monaShapesParams[0][0], monaShapesParams[0][1], monaShapesParams[0][2]+posToGo)
+  thickLine(monaShapesParams[1][0], monaShapesParams[1][1], monaShapesParams[1][2]+posToGo)
+  curve1(monaShapesParams[2][0], monaShapesParams[2][1], monaShapesParams[2][2]+posToGo)
+  curve2a(monaShapesParams[3][0], monaShapesParams[3][1], monaShapesParams[3][2]+posToGo)
+  curve2b(monaShapesParams[4][0], monaShapesParams[4][1], monaShapesParams[4][2]+posToGo)
+  curve3(monaShapesParams[5][0], monaShapesParams[5][1], monaShapesParams[5][2]+posToGo)
   //curve4(randomRange(0, 300, true), randomRange(0, 300), Math.random()*3 + 1)
-  curve4(monaShapesParams[6][0], monaShapesParams[6][1], monaShapesParams[6][2])
-  curve5(monaShapesParams[7][0], monaShapesParams[7][1], monaShapesParams[7][2])
-  circle1(monaShapesParams[8][0], monaShapesParams[8][1], monaShapesParams[8][2])
-  circle2(monaShapesParams[9][0], monaShapesParams[9][1], monaShapesParams[9][2])
+  curve4(monaShapesParams[6][0], monaShapesParams[6][1], monaShapesParams[6][2]+posToGo)
+  curve5(monaShapesParams[7][0], monaShapesParams[7][1], monaShapesParams[7][2]+posToGo)
+  circle1(monaShapesParams[8][0], monaShapesParams[8][1], monaShapesParams[8][2]+posToGo)
+  circle2(monaShapesParams[9][0], monaShapesParams[9][1], monaShapesParams[9][2]+posToGo)
   //circle1(randomRange(0, 300, true), randomRange(0, 300), Math.random()*3 + 1)
   //circle2(randomRange(0, 300, true), randomRange(0, 300), Math.random()*3 + 1)
-  rectangle1(monaShapesParams[10][0], monaShapesParams[10][1], monaShapesParams[10][2])
-  rectangle2(monaShapesParams[11][0], monaShapesParams[11][1], monaShapesParams[11][2])
+  rectangle1(monaShapesParams[10][0], monaShapesParams[10][1], monaShapesParams[10][2]+posToGo)
+  rectangle2(monaShapesParams[11][0], monaShapesParams[11][1], monaShapesParams[11][2]+posToGo)
+
+  oldPosToGo = posToGo;
 
   two.update()
 }
